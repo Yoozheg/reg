@@ -1,0 +1,26 @@
+@charset "utf-8";
+*{padding:0;margin:0}
+body{color:#000;background:#fff;font:16px "Trebuchet MS",Calibri,sans-serif;min-width:1001px}
+section,nav,footer,header{min-width:1001px}
+header,main,footer,nav,aside,section,article,figure,figcaption{display:block}
+.clear{clear:both}
+.left{float:left}
+.right{float:right}
+.hide{display:none}
+.show{display:block}
+.button{cursor:pointer}
+.dark{background-color:rgba(0,0,0,.7);display:inline-block}
+
+section{clear:both}
+main{margin:0 auto;width:960px;position:relative}
+
+header{}
+
+footer{}
+
+#splash{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);color:white;text-shadow:0 0 1px #666;display:none;z-index:10}
+#splash main{text-align:center;top:150px}
+#splash form{margin:0 auto 0;position:static}
+
+#copyright{text-align:center;font-size:12px;color:gray;font-family:Calibri}
+#copyright a{color:lime;text-decoration:none}
