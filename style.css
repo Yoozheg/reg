@@ -16,6 +16,14 @@ main{margin:0 auto;width:960px;position:relative}
 
 header{}
 
+#header{}
+
+#work{}
+
+#price{}
+
+#what{}
+
 footer{}
 
 #splash{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);color:white;text-shadow:0 0 1px #666;display:none;z-index:10}
