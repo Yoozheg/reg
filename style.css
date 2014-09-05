@@ -10,13 +10,18 @@ header,main,footer,nav,aside,section,article,figure,figcaption{display:block}
 .show{display:block}
 .button{cursor:pointer}
 .dark{background-color:rgba(0,0,0,.7);display:inline-block}
+@font-face {font-family:"Open Sans Light";src:url(Avx24TRu.ttf);}
 
 section{clear:both}
 main{margin:0 auto;width:960px;position:relative}
 
 header{}
 
-#header{}
+#header{height:661px;background:url(img/fon1.jpg) center top no-repeat;}
+#header main{text-align:center;}
+#header h1{color:#fe1d23;font:bold 63px "Trebuchet MS";text-transform:uppercase;padding-top:}
+#header h2{color:black;font:48px "Open Sans Light";text-transform:uppercase;}
+
 
 #work{}
 
