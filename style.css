@@ -19,9 +19,17 @@ header{}
 
 #header{height:661px;background:url(img/fon1.jpg) center top no-repeat;}
 #header main{text-align:center;}
-#header h1{color:#fe1d23;font:bold 63px "Trebuchet MS";text-transform:uppercase;padding-top:}
-#header h2{color:black;font:48px "Open Sans Light";text-transform:uppercase;}
-
+#header h1{color:#fe1d23;font:bold 63px "Trebuchet MS";text-transform:uppercase;padding-top:80px;}
+#header h2{color:black;font:48px "Open Sans Light";text-transform:uppercase;margin-top:-10px;}
+#header div{background:url(img/pole1.png) center top no-repeat;}
+#header article{font-family:"Trebuchet MS";}
+#header p.string1{color:#373737;font-size:20px;font-weight:normal;font-variant:italic;}
+#header p.string2{color:#373737;font-size:31px;font-weight:bold;text-transform:uppercase;}
+#header p.string4{color:#fe1d23;font-weight:bold;text-transform:uppercase;font-size:40px;}
+#header p.string4 span.span1{font-size:13px;}
+#header p.string4 span.span2{color:#373737;font-size:14px;text-decoration:line-through;}
+#header p.string5{color:#fe1d23;font-weight:bold;text-transform:uppercase;text-align:left;}
+#header p.string6{color:#949494;text-align:left;}
 
 #work{}
 
