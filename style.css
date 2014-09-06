@@ -21,23 +21,50 @@ header{}
 #header main{text-align:center;}
 #header h1{color:#fe1d23;font:bold 63px "Trebuchet MS";text-transform:uppercase;padding-top:80px;}
 #header h2{color:black;font:48px "Open Sans Light";text-transform:uppercase;margin-top:-10px;}
-#header div{background:url(img/pole1.png) center top no-repeat;}
+#header div{background:url(img/pole1.png) center top no-repeat;height:360px;position:relative;}
 #header article{font-family:"Trebuchet MS";}
-#header p.string1{color:#373737;font-size:20px;font-weight:normal;font-variant:italic;}
+#header p.string1{color:#373737;font-size:20px;font-weight:normal;font-style:italic;}
 #header p.string2{color:#373737;font-size:31px;font-weight:bold;text-transform:uppercase;}
-#header p.string4{color:#fe1d23;font-weight:bold;text-transform:uppercase;font-size:40px;}
+#header p.string4{color:#fe1d23;font-weight:bold;text-transform:uppercase;font-size:40px;margin-top:20px;}
 #header p.string4 span.span1{font-size:13px;}
 #header p.string4 span.span2{color:#373737;font-size:14px;text-decoration:line-through;}
-#header p.string5{color:#fe1d23;font-weight:bold;text-transform:uppercase;text-align:left;}
-#header p.string6{color:#949494;text-align:left;}
+#header p.string5{color:#fe1d23;font-weight:bold;text-transform:uppercase;text-align:left;font-size:11px;margin-top:10px;}
+#header p.string6{color:#949494;text-align:left;font-weight:bold;font-size:11px;}
+#header article.right p.string5, #header article.right p.string6{text-align:right;}
+#header article.right{float:none;position:absolute;top:110px;right:70px;}
+#header article.left{float:none;position:absolute;left:70px;top:110px;}
+#header form{width:353px;margin: 0 auto;}
+#header form h3{color:#373737;font:bold 30px "Trebuchet MS";padding-top:20px;text-transform:uppercase;}
+#header form p{color:#949494;font:15px "Trebuchet MS";margin-top:20px;margin-bottom:5px;}
+#header form input{display:block;margin: 0 auto;width:260px;height:20px;padding:5px;font:20px "Trebuchet MS";color:#373737;}
+#header form button{display:block;margin:30px auto 0 auto;color:white;background-color:#fe1d23;border:none;outline:none;box-shadow:0 2px 0 #b90c10;width:265px;height:50px;font:bold 20px "Trebuchet MS";text-transform:uppercase;cursor:pointer;}
+#header form button:active{margin-top:32px;box-shadow:none;}
 
 #work{}
 
 #price{}
 
-#what{}
+#what{background:white;}
+#what main{background:url('img/okno1.jpg') bottom left no-repeat;height:550px;}
+#what div{margin-left:470px;}
+#what h3{color:#3ba0ce;font:bold 50px "Trebuchet MS";text-transform:uppercase;padding-top:100px;}
+#what h3 span{color:#373737;font:50px "Open Sans Light";}
+#what h4{color:#373737;font:24px "Open Sans Light";margin-top:-10px;}
+#what ul{padding-left:5px;list-style:none;margin-top:40px;}
+#what ul li{color:#373737;font:24px "Open Sans Light";background:url('img/gl_off.png') left center no-repeat;padding-left:50px;margin-top:20px;cursor:pointer;}
+#what ul li.selected{background:url('img/gl_on.png') left center no-repeat;}
 
-footer{}
+
+footer{height:488px;background:url(img/fon3.jpg) center top no-repeat;padding-top:50px;}
+footer main{text-align:center;}
+footer div{background:url(img/pole2.png) center top no-repeat;height:360px;position:relative;width:353px;margin:0 auto;}
+footer h3{color:#3499cd;font:bold 50px "Trebuchet MS";text-transform:uppercase;padding-top:20px;}
+footer h4{color:#fe1d23;font:bold 25px "Trebuchet MS";text-transform:uppercase;margin-top:10px;}
+footer p{color:#000;font:25px "Open Sans Light";}
+footer p.ololo{margin-top:-5px;margin-bottom:10px;}
+footer button{display:block;margin:10px auto 0 auto;color:white;background-color:#fe1d23;border:none;outline:none;box-shadow:0 2px 0 #b90c10;height:50px;font:bold 20px "Trebuchet MS";text-transform:uppercase;cursor:pointer;padding:0 25px;}
+footer button:active{margin-top:12px;box-shadow:none;}
+footer hr{width:230px;margin:0 auto;}
 
 #splash{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);color:white;text-shadow:0 0 1px #666;display:none;z-index:10}
 #splash main{text-align:center;top:150px}
