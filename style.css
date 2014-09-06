@@ -21,7 +21,7 @@ header{}
 #header main{text-align:center;}
 #header h1{color:#fe1d23;font:bold 63px "Trebuchet MS";text-transform:uppercase;padding-top:80px;}
 #header h2{color:black;font:48px "Open Sans Light";text-transform:uppercase;margin-top:-10px;}
-#header div{background:url(img/pole1.png) center top no-repeat;height:360px;position:relative;}
+#header div{background:url(img/pole1.png) center top no-repeat;height:360px;position:relative;margin-top:70px;}
 #header article{font-family:"Trebuchet MS";}
 #header p.string1{color:#373737;font-size:20px;font-weight:normal;font-style:italic;}
 #header p.string2{color:#373737;font-size:31px;font-weight:bold;text-transform:uppercase;}
