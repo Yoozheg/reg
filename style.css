@@ -15,7 +15,18 @@ header,main,footer,nav,aside,section,article,figure,figcaption{display:block}
 section{clear:both}
 main{margin:0 auto;width:960px;position:relative}
 
-header{}
+header{height:135px;}
+header div.left{padding-top:15px}
+header h2{font:30px "Open Sans Light";text-transform:uppercase;color:#48a0cd}
+header h2 span{color:black;}
+header div.left p{font:15px "Open Sans Light"}
+header div.left p span{text-transform:uppercase;}
+header div.right{padding-top:15px;text-align:right}
+header div.right p{font:15px "Open Sans Light";}
+header div.right p span{text-transform:uppercase;color:#fe1d23}
+header div.right p strong{font-weight:normal;font-size:25px}
+header button{display:block;margin:7px 0 0 auto;color:white;background-color:#fe1d23;border:none;outline:none;box-shadow:0 2px 0 #b90c10;width:180px;height:40px;font:bold 14px "Trebuchet MS";text-transform:uppercase;cursor:pointer;}
+header button:active{margin-top:9px;box-shadow:none;}
 
 #header{height:661px;background:url(img/fon1.jpg) center top no-repeat;}
 #header main{text-align:center;}
