@@ -62,7 +62,26 @@ header button:active{margin-top:9px;box-shadow:none;}
 .w3{background:url(img/kr3.png)no-repeat center top;margin-right:80px}
 .w4{background:url(img/kr4.png)no-repeat center top}
 
-#price{}
+#price{height:1005px;background:url(img/fon2.jpg)no-repeat center top}
+#price h3{padding-top:27px;text-align:center;font:50px "Open Sans Light";color:#373737;text-transform:uppercase;margin-top:55px;}
+#price h3 strong{font:bold 50px "Trebuchet MS";color:#3ba0ce}
+#price h4{font:bold 19px "Trebuchet MS";text-transform:uppercase;padding-top:30px}
+#price ol{list-style:none;font:italic 15px "Trebuchet MS";padding-top:13px}
+#price ol strong{font-weight:bold}
+#price div{width:479px}
+#price button{font:20px "Trebuchet MS";color:white;}
+#price button span{font:bold 22px "Trebuchet MS";text-transform:uppercase}
+#price div.left h4{padding-left:165px}
+#price div.left ol{padding-left:160px}
+#price div.left ol li{padding:30px 0}
+#price div.left ol li:nth-child(2){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
+#price div.left button{margin-left:45px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:505px}
+#price div.right h4{padding-left:189px}
+#price div.right ol{padding-left:184px}
+#price div.right ol li{padding:30px 0}
+#price div.right ol li:nth-child(even){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
+#price div.right button{margin-left:74px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:300px}
+
 
 #what{background:white;}
 #what main{background:url('img/okno1.jpg') bottom left no-repeat;height:550px;}
