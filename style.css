@@ -51,7 +51,7 @@ header button:active{margin-top:9px;box-shadow:none;}
 #header form button{display:block;margin:30px auto 0 auto;color:white;background-color:#fe1d23;border:none;outline:none;box-shadow:0 2px 0 #b90c10;width:265px;height:50px;font:bold 20px "Trebuchet MS";text-transform:uppercase;cursor:pointer;}
 #header form button:active{margin-top:32px;box-shadow:none;}
 
-#work{height:400px}
+#work{height:350px}
 #work h3{text-align:center;font:50px "Open Sans Light";color:#373737;text-transform:uppercase;margin-top:55px;}
 #work h3 strong{font:bold 50px "Trebuchet MS";color:#3ba0ce}
 #work ol{list-style:none;font:16px "Open Sans Light";text-align:center;margin-top:35px;}
@@ -70,17 +70,17 @@ header button:active{margin-top:9px;box-shadow:none;}
 #price ol strong{font-weight:bold}
 #price div{width:479px}
 #price button{font:20px "Trebuchet MS";color:white;}
+#price button p{padding-left:55px}
 #price button span{font:bold 22px "Trebuchet MS";text-transform:uppercase}
 #price div.left h4{padding-left:165px}
 #price div.left ol{padding-left:160px}
-#price div.left ol li{padding:30px 0}
+#price  ol li{padding-top:27px;padding-bottom:28px}
 #price div.left ol li:nth-child(2){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.left button{margin-left:45px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:505px}
+#price div.left button{margin-left:45px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:519px}
 #price div.right h4{padding-left:189px}
 #price div.right ol{padding-left:184px}
-#price div.right ol li{padding:30px 0}
 #price div.right ol li:nth-child(even){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.right button{margin-left:74px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:300px}
+#price div.right button{margin-left:74px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:320px}
 
 
 #what{background:white;}
