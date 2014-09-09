@@ -2,6 +2,9 @@
 <html><head><meta charset="utf-8">
  <title>Временная регистрация в Москве за один день!</title>
  <link rel="stylesheet" href="style.css" />
+ <script src="xjsl.js"></script>
+ <script src="client.js"></script>
+ <script src="splash.js"></script>
  <script src="script.js"></script>
 </head>
 <body>
@@ -12,8 +15,7 @@
 <h2><span>московский</span> отдел<br/>временной регистрации</h2>
 <p><span>помощь в получении регистрации</span> с доставкой по Москве</p></div>
 <div class="right"><p><span>без выходных</span> (с 9:00 до 21:00)<br/>+(499)<strong> 000 11 22</strong></p>
-<button>заказать звонок</button></div>
-
+<button class="button">заказать звонок</button></div>
 </main>
 </header>
 
@@ -30,12 +32,12 @@
    <p class="string5">бесплатная доставка</p>
    <p class="string6">в пределах кольцевой ветки метро</p>
   </article>
-  <form>
+  <form class="simpleform">
    <h3>оставьте заявку</h3>
    <p>введите Ваше имя</p>
-   <input></input>
+   <input type="text" name="name" required />
    <p>введите Ваш телефон</p>
-   <input></input>
+   <input type="tel" name="phone" required />
    <button>отправить заявку</button>
   </form>
   <article class='right'>
@@ -73,7 +75,7 @@
  <li>регистрация на <strong>6 месяцев</strong></li>
  <li>регистрация на <strong>1 год</strong></li>
  </ol>
- <button><p><span>онлайн заявка</span><br/>на регистрацию граждан СНГ</p></button>
+ <button class="button" data-from="СНГ"><p><span>онлайн заявка</span><br/>на регистрацию граждан СНГ</p></button>
  </div>
  <div class="right">
  <h4>для граждан рф</h4>
@@ -85,9 +87,8 @@
  <li>регистрация на <strong>2 года</strong></li>
  <li>регистрация на <strong>5 лет</strong></li>
  </ol>
- <button><p><span>онлайн заявка</span><br/>на регистрацию граждан СНГ</p></button>
+ <button class="button" data-from="РФ"><p><span>онлайн заявка</span><br/>на регистрацию граждан РФ</p></button>
  </div>
- 
  </main>
 </section>
 
@@ -118,23 +119,46 @@
   <h4>на всех остальных</h4>
   <p>станциях метро 300руб.</p>
  </div>
- <button>заказать регистрацию с доставкой</button>
+ <button class="button">заказать регистрацию с доставкой</button>
 </main>
 </footer>
 
-<div id="splash">
- <main>
-  <form>
-   <p>Оставьте заявку прямо сейчас<br />и получите скидку 10% на любую услугу</p>
-   <input type="text" name="name" placeholder="Ваше имя" required />
-   <input type="tel" name="phone" placeholder="Ваш телефон" required />
-   <button>Оставить заявку</button>
-  </form>
- </main>
-</div>
-
 <section id="copyright">
-<main>Создание сайта <a href="http://greenproject.me">greenproject.me</a>, 2014</main>
+ <main>Создание сайта <a href="http://greenproject.me">greenproject.me</a>, 2014</main>
 </section>
+
+<main id="splashmain">
+  <form id="simpleform" class="simpleform">
+   <h3>оставьте заявку</h3>
+   <p>введите Ваше имя</p>
+   <input type="text" name="name" required />
+   <p>введите Ваш телефон</p>
+   <input type="tel" name="phone" required />
+   <button>отправить заявку</button>
+  </form>
+  
+  <form id="hardform" class="simpleform">
+   <h3>Регистрация для гражданина <span></span></h3>
+   <aside class="left">
+    <h4>Выберите округ</h4>
+	<ul id="district"></ul>
+   </aside>
+   <article>
+    <h4>Оформление временной регистрации в <span></span></h4>
+	<p><label>Выберите район</label><select name="departments"></select></p>
+	<p><label>Срок регистрации</label><select name="duration"></select></p>
+	<p><label>ФИО</label><input type="text" name="name" required /></p>
+	<p><label>Дата рождения</label><input type="date" name="birthdate" required /></p>
+	<p><label>Место рождения</label><input type="text" name="birthplace" required /></p>
+	<p><label>Выберите вид документа<span>удостоверяющего личность</span></label><select name="userdoc"></select></p>
+	<p><label>Введите паспортные данные<span>Серия и номер, когда и кем выдан</span></label><textarea name="passport"></textarea></p>
+	<p><label>Ваши вопросы или пожелания</label><textarea name="request"></textarea></p>
+	<p><label>Ваш номер телефона</label><input type="tel" name="phone" required /></p>
+	<p><label>Ближайшее метро</label><input type="text" name="metro" required /></p>
+   </article>
+   
+   <button class="clear">Оформить временную регистрацию</button>
+  </form>
+</main>
 
 </body></html>

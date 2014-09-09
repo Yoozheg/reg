@@ -15,6 +15,13 @@ header,main,footer,nav,aside,section,article,figure,figcaption{display:block}
 section{clear:both}
 main{margin:0 auto;width:960px;position:relative}
 
+form.simpleform{width:353px;margin: 0 auto;}
+form.simpleform h3{color:#373737;font:bold 30px "Trebuchet MS";padding-top:20px;text-transform:uppercase;}
+form.simpleform p{color:#949494;font:15px "Trebuchet MS";margin-top:20px;margin-bottom:5px;}
+form.simpleform input, form.simpleform select{display:block;margin: 0 auto;width:260px;height:20px;padding:5px;font:20px "Trebuchet MS";color:#373737;}
+form.simpleform button{display:block;margin:30px auto 0 auto;color:white;background-color:#fe1d23;border:none;outline:none;box-shadow:0 2px 0 #b90c10;width:265px;height:50px;font:bold 20px "Trebuchet MS";text-transform:uppercase;cursor:pointer;}
+form.simpleform button:active{margin-top:32px;box-shadow:none;}
+
 header{height:135px;}
 header div.left{padding-top:15px}
 header h2{font:30px "Open Sans Light";text-transform:uppercase;color:#48a0cd}
@@ -44,19 +51,12 @@ header button:active{margin-top:9px;box-shadow:none;}
 #header article.right p.string5, #header article.right p.string6{text-align:right;}
 #header article.right{float:none;position:absolute;top:110px;right:70px;}
 #header article.left{float:none;position:absolute;left:70px;top:110px;}
-#header form{width:353px;margin: 0 auto;}
-#header form h3{color:#373737;font:bold 30px "Trebuchet MS";padding-top:20px;text-transform:uppercase;}
-#header form p{color:#949494;font:15px "Trebuchet MS";margin-top:20px;margin-bottom:5px;}
-#header form input{display:block;margin: 0 auto;width:260px;height:20px;padding:5px;font:20px "Trebuchet MS";color:#373737;}
-#header form button{display:block;margin:30px auto 0 auto;color:white;background-color:#fe1d23;border:none;outline:none;box-shadow:0 2px 0 #b90c10;width:265px;height:50px;font:bold 20px "Trebuchet MS";text-transform:uppercase;cursor:pointer;}
-#header form button:active{margin-top:32px;box-shadow:none;}
-
 #work{height:350px}
 #work h3{text-align:center;font:50px "Open Sans Light";color:#373737;text-transform:uppercase;margin-top:55px;}
 #work h3 strong{font:bold 50px "Trebuchet MS";color:#3ba0ce}
 #work ol{list-style:none;font:16px "Open Sans Light";text-align:center;margin-top:35px;}
 #work ol strong{font:bold 16px "Trebuchet MS"}
-#work ol li{display:inline-block;position:relative;width:165px;padding-top:155px;vertical-align:center;}
+#work ol li{display:inline-block;position:relative;width:165px;padding-top:155px}
 .w1{background:url(img/kr1.png)no-repeat center top;margin-right:80px}
 .w2{background:url(img/kr2.png)no-repeat center top;margin-right:80px}
 .w3{background:url(img/kr3.png)no-repeat center top;margin-right:80px}
@@ -68,20 +68,19 @@ header button:active{margin-top:9px;box-shadow:none;}
 #price h4{font:bold 19px "Trebuchet MS";text-transform:uppercase;padding-top:30px}
 #price ol{list-style:none;font:italic 15px "Trebuchet MS";padding-top:13px}
 #price ol strong{font-weight:bold}
-#price div{width:479px}
+#price div{width:479px;height:870px;position:relative;}
 #price button{font:20px "Trebuchet MS";color:white;}
 #price button p{padding-left:55px}
 #price button span{font:bold 22px "Trebuchet MS";text-transform:uppercase}
 #price div.left h4{padding-left:165px}
 #price div.left ol{padding-left:160px}
-#price  ol li{padding-top:29px;padding-bottom:30px}
+#price  ol li{padding-top:27px;padding-bottom:28px}
 #price div.left ol li:nth-child(2){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.left button{float:left;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:530px}
 #price div.right h4{padding-left:189px}
 #price div.right ol{padding-left:184px}
 #price div.right ol li:nth-child(even){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.right button{float:right;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:330px}
-
+#price div.left button  {position:absolute;bottom:0;left:56px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none}
+#price div.right button{position:absolute;bottom:0;left:56px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none}
 
 #what{background:white;}
 #what main{background:url('img/okno1.jpg') bottom left no-repeat;height:550px;}
@@ -92,7 +91,6 @@ header button:active{margin-top:9px;box-shadow:none;}
 #what ul{padding-left:5px;list-style:none;margin-top:40px;}
 #what ul li{color:#373737;font:24px "Open Sans Light";background:url('img/gl_off.png') left center no-repeat;padding-left:50px;margin-top:20px;cursor:pointer;}
 #what ul li.selected{background:url('img/gl_on.png') left center no-repeat;}
-
 
 footer{height:488px;background:url(img/fon3.jpg) center top no-repeat;padding-top:50px;}
 footer main{text-align:center;}
@@ -105,9 +103,25 @@ footer button{display:block;margin:10px auto 0 auto;color:white;background-color
 footer button:active{margin-top:12px;box-shadow:none;}
 footer hr{width:230px;margin:0 auto;}
 
-#splash{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);color:white;text-shadow:0 0 1px #666;display:none;z-index:10}
-#splash main{text-align:center;top:150px}
-#splash form{margin:0 auto 0;position:static}
+#splashmain{position:fixed;text-align:center;top:0;left:13%;right:13%;z-index:12;display:none}
+#splashmain form{margin:0 auto 0;position:static;}
+#splashmain form.simpleform#simpleform{background:url(img/pole2.png) center top no-repeat;height:360px;width:353px;margin-top:150px}
+#splashmain form.simpleform#hardform{margin:0 auto 0;position:static;background:url(img/pole3.png) center top no-repeat;height:783px;width:843px}
+
+#hardform aside{text-align:left;margin-left:40px}
+#hardform aside ul{list-style:none;margin-left:20px;display:block}
+#hardform aside ul li{cursor:pointer;font-weight:bold;list-style:none;display:block;padding:0 6px;margin-top:8px}
+#hardform aside ul li:before{content:'Регистрация в ';font-weight:normal}
+#hardform aside ul li:hover{background:#eee}
+#hardform aside ul li.selected{background:#eee;color:darkred}
+#hardform article{margin-left:280px;margin-right:30px;	text-align:center}
+#hardform article p{text-align:right;margin-bottom:0;margin-top:18px}
+#hardform article p label{float:left;color:#333}
+#hardform article p span{color:grey;font-style:italic;font-size:0.8em;text-transform:lowercase;display:block;text-align:left}
+#hardform article p input,#hardform article p select,#hardform article p textarea{display:inline-block}
+#hardform article p select{width:273px;height:30px}
+#hardform article p textarea{height:45px;width:270px}
+#hardform button{width:auto;padding-left:20px;padding-right:20px}
 
 #copyright{text-align:center;font-size:12px;color:gray;font-family:Calibri}
 #copyright a{color:lime;text-decoration:none}
