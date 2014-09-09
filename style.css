@@ -74,13 +74,13 @@ header button:active{margin-top:9px;box-shadow:none;}
 #price button span{font:bold 22px "Trebuchet MS";text-transform:uppercase}
 #price div.left h4{padding-left:165px}
 #price div.left ol{padding-left:160px}
-#price  ol li{padding-top:27px;padding-bottom:28px}
+#price  ol li{padding-top:29px;padding-bottom:30px}
 #price div.left ol li:nth-child(2){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.left button{margin-left:45px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:519px}
+#price div.left button{float:left;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:530px}
 #price div.right h4{padding-left:189px}
 #price div.right ol{padding-left:184px}
 #price div.right ol li:nth-child(even){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.right button{margin-left:74px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:320px}
+#price div.right button{float:right;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none;margin-top:330px}
 
 
 #what{background:white;}
