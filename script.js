@@ -1,85 +1,157 @@
 (function(window, document, undefined){
  "use strict";
+ 
+ function $(e){return typeof e == 'string' ? document.querySelector(e) : e}
+ 
+ function ajax(text, addr, callback, params){
+  var req = (parseURL(addr).host === window.location.hostname) ? new XMLHttpRequest() : (function(XHR){return new XHR()})(window.XDomainRequest || window.XMLHttpRequest);
+  var defaultParams = {method: text ? "post" : "get", json: false, async: true};
+  if(!params) params = {};
+	 for(var key in defaultParams) if(params[key] === undefined) params[key] = defaultParams[key];
+  params.method = (params.method || (text ? "post" : "get")).toLowerCase();
+  if(text !== undefined && typeof text !== "string"){
+   if(params.method === "post"){
+   var res = new FormData();
+    for(var f in text){
+     if(typeof text[f] === "object" && text[f] instanceof Array){
+      for(var i = 0; i < text[f].length; ++i) res.append(f, text[f][i]);
+     }else res.append(f, text[f]);
+    }
+    text = res;
+   }else text = toQueryString(text); // get
+  }
+  if(params.method === "get" && text) addr += "?" + text;
+  req.open(params.method, addr, params.async);
+  xcrft(req, {type: params.method, url: addr});
+  req.send(params.method === "get" ? null : text);
+  if(params.async && callback) req.onload = function(){callback.call(null, params.json ? JSON.parse(req.responseText) : req.responseText)}
+  if(!params.async && req.status === 200){return params.json ? JSON.parse(req.responseText) : req.responseText}
+  return this;
 
- function District(name, header, data){
-  this.name   = name;
-  this.header = header;
-  this.data   = data;
+  function xcrft(xhr, settings){
+   function sameOrigin(url){
+    var host = document.location.host; // host + port
+    var protocol = document.location.protocol;
+    var sr_origin = '//' + host;
+    var origin = protocol + sr_origin;
+    return (url == origin || url.slice(0, origin.length + 1) == origin + '/')
+     || (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/')
+     || !(/^(\/\/|http:|https:).*/.test(url));
+   }
+   function safeMethod(method){ return (/^(GET|HEAD|OPTIONS|TRACE)$/i.test(method)) }
+   if(!safeMethod(settings.type) && sameOrigin(settings.url)) xhr.setRequestHeader("X-CSRFToken", cookie("csrftoken"));
+  }
+ }
+ function cookie(name, value, props){
+  if(!value && !props){
+   var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+   return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+  props = props ||{};
+  var exp = props.expires;
+  if(typeof exp == "number" && exp){
+   var d = new Date();
+   d.setTime(d.getTime() + exp*1000);
+   exp = props.expires = d;
+  }
+  if(exp && exp.toUTCString){props.expires = exp.toUTCString()}
+  value = encodeURIComponent(value);
+  var updatedCookie = name + "=" + value;
+  for(var propName in props){
+   updatedCookie += "; " + propName;
+   var propValue = props[propName];
+   if(propValue !== true) updatedCookie += "=" + propValue;
+  }
+  document.cookie = updatedCookie;
+  return this
+ }
+ function toQueryString(obj, prefix){
+  var str = [];
+  for(var p in obj){
+   var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
+   str.push(typeof v == "object" ? $.toQueryString(v, k) : encodeURIComponent(k) + "=" + encodeURIComponent(v));
+  }
+  return str.join("&");
+ }
+ function parseURL(url){
+  var a =  document.createElement('a');
+  a.href = url;
+  return {
+   source: url,
+   protocol: a.protocol.replace(':',''),
+   host: a.hostname,
+   port: a.port,
+   query: a.search,
+   params: (function(){
+    var ret = {}, seg = a.search.replace(/^\?/,'').split('&'), len = seg.length, i = 0, s;
+    for(;i<len;i++){
+     if(!seg[i]) continue;
+     s = seg[i].split('=');
+     ret[s[0]] = s[1];
+    }
+    return ret;
+   })(),
+   file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+   hash: a.hash.replace('#',''),
+   path: a.pathname.replace(/^([^\/])/,'/$1'),
+   relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+   segments: a.pathname.replace(/^\//,'').split('/')
+  };
  }
  
- var SZAO = new District('Северо-Западный', 'СЗАО', ['Куркино','Митино','Покровское-Стрешнево','Северное Тушино','Строгино','Хорошево-Мневники','Щукино','Южное Тушино']),
-     SAO  = new District('Северный','САО',['Аэропорт','Беговой','Бескудниковский','Войковский','Восточное Дегунино','Головинский','Дмитровский','Западное Дегунино','Коптево','Левобережный','Молжаниновский','Савеловский','Сокол','Тимирязевский','Ховрино','Хорошевский']),
-	 SVAO = new District('Северо-Восточный','СВАО',['Алексеевский','Алтуфьевский','Бабушкинский','Бибирево','Бутырский','Лианозово','Лосиноостровский','Марфино','Марьина Роща','Останкинский','Отрадное','Ростокино','Свиблово','Северное Медведково','Северный','Южное Медведково','Ярославский']),
-	 ZAO  = new District('Западный', 'ЗАО', ['Внуково','Дорогомилово','Крылатское','Кунцево','Можайский','Ново-Переделкино','Очаково-Матвеевское','Проспект Вернадского','Раменки','Солнцево','Тропарево-Никулино','Филевский Парк','Фили-Давыдково']),
-	 CAO  = new District('Центральный', 'ЦАО', ['Арбат','Басманный','Замоскворечье','Китай-Город','Красносельский','Мещанский','Пресненский','Таганский','Тверской','Хамовники','Якиманка']), 
-	 VAO  = new District('Восточный', 'ВАО', ['Богородское','Вешняки','Восточное Измайлово','Восточный','Гольяново','Ивановское','Измайлово','Косино-Ухтомский','Метрогородок','Новогиреево','Новокосино','Перово','Преображенское','Северное Измайлово','Соколиная Гора','Сокольники']),
-	 UZAO = new District('Юго-Западный', 'ЮЗАО', ['Академический','Гагаринский','Зюзино','Коньково','Котловка','Ломоносовский','Обручевский','Северное Бутово','Теплый Стан','Черемушки','Южное Бутово','Ясенево']),
-     UAO  = new District('Южный', 'ЮАО', ['Бирюлево Восточное','Бирюлево Западное','Братеево','Даниловский','Донской','Зябликово','Москворечье-Сабурово','Нагатино-Садовники','Нагатинский Затон','Нагорный','Орехово-Борисово','Северное','Орехово-Борисово','Южное','Царицыно','Чертаново Северное','Чертаново Центральное','Чертаново Южное']),
-     UVAO = new District('Юго-Восточный', 'ЮВАО', ['Выхино-Жулебино','Капотня','Кузьминки','Лефортово','Люблино','Марьино','Некрасовка','Нижегородский','Печатники','Рязанский','Текстильщики','Южнопортовый']),
-	 ZelAO= new District('Зеленоградский','ЗелАО', ['Крюково','Матушкино-Савелки','Панфиловский','Силино','Старое','Крюково']),
-	 NAO  = new District('Новомосковский', 'НАО', ['Внуковское','Воскресенское','Десеновское','Кокошкино','Марушкинское','Московский','Мосрентген','Рязановское','Сосенское','Филимонковское','Щербинка']),
-	 TAO  = new District('Троицкий', 'ТАО', ['Вороновское','Киевский','Кленовское','Краснопахорское','Михайлово-Ярцевское','Новофедоровское','Первомайское','Роговское','Троицк','Щаповское']),
-   district = [SZAO,SAO,SVAO,ZAO,CAO,VAO,UZAO,UAO,UVAO,ZelAO,NAO,TAO],
-   register = {'РФ':['6 месяцев','1 год','2 года','3 года','4 года','5 лет'],'СНГ':['3 месяца','6 месяцев','1 год']},
-   userdoc  = {'РФ':['Паспорт','Свидетельство о рождении'],'СНГ':['Паспорт']};
-
- $.ready(function(){
-  $(['#what div ul li']).on({click: function(e){$('#what main').css({backgroundImage:'url(img/'+this.onceClass('selected').data('num')+')'})}});
-  $(['.button']).on({click:function(e){ openSplash(this.data('from')) }});
-  $(['form']).on({submit: form});
- });
-
-function setOptions(name, data){
- var select = $('#hardform article select[name="'+name+'"]').clear();
- select.rmAttr('disabled');
- for(var i = 0; i < data.length; ++i){
-  select.add('option').html(data[i]);
+ window.onload = function(e){
+  var forms = document.querySelectorAll('form button:not(id)');
+  for(var i = 0; i < forms.length; ++i){
+   forms[i].onclick = submit;
+  }
+  function submit(event){
+   var form = this.parentNode;
+   var inputs = form.querySelectorAll('input');
+   var data = {};
+   var e;
+   for(var i = 0; i < inputs.length; ++i){
+    e = inputs[i];
+    if(e.value && e.value.length > 0 && e.checkValidity()){
+     data[e.name] = e.type === 'file' ? e.files[0] : e.value || e.getAttribute('value');
+    }else{
+     if(e.files && e.files.length){
+      data[e.name] = e.files[0];
+     }else return alert("Как минимум одно из полей не заполнено!");
+    }
+   }
+   ajax(data, 'server.php', function(r){
+    alert(r);
+   });
+   $('#splash').style.display = 'none';
+   event.preventDefault();
+   event.stopPropagation();
+   event.cancelBubble = true;
+   return false;
+  }
+	
+	$('#splash').onclick = function(){
+	 $('#splash').style.display = 'none';
+	}
+	$('#splash form').onclick = function(e){
+	 e.preventDefault();
+   e.stopPropagation();
+   e.cancelBubble = true;
+	 return false;
+	}
+  $('#fotoupload').onclick = function(e){
+   $('form input[type="file"]').click();
+   e.preventDefault();
+   e.stopPropagation();
+   e.cancelBubble = true;
+   return false;
+  }
+	
+	var buttons = document.querySelectorAll('.button');
+	function buttonClick(){
+	 $('#splash').style.display = 'block';
+	}
+	for(var i=0;i<buttons.length;++i){
+	 buttons[i].onclick = buttonClick;
+	}
  }
-}
-function selectDistrict(li, districts, register, userdoc){
- if(li && districts){
-  var header = li.onceClass('selected').html(), district;
-  for(var i = 0; i < districts.length; ++i)if(districts[i].header == header){district = districts[i]; break};
-  $('#hardform article h4 span').html(header).parent().show();
-  setOptions('departments', district.data);
- }else{
-  $('#hardform article select[name="departments"]').attr('disabled', 'disabled');
- }
- setOptions('duration', register);
- setOptions('userdoc', userdoc);
-}
-function initHardForm(districts, register, userdoc, param){
- var HH = 700, cH = $.client.height(), mT = ~~((cH-HH)/2);
- $('#hardform').css({marginTop:mT+'px'});
- $('#simpleform').hide();
- $('#hardform h3 span').html(param);
- var ul = $('#hardform aside ul').clear(), hard = $('#hardform aside').hide();
- for(var i = 0; i < districts.length; ++i) ul.add('li').html(districts[i].header);
- selectDistrict($('#hardform aside ul li'), districts, register, userdoc);
- $(['#hardform aside ul li']).on({click: function(e){selectDistrict(this, districts, register, userdoc)}});
- hard.show();
- $('#hardform').show();
-}
-function closeSplash(){ $('#splashmain').hide() }
-function openSplash(param){
- $.splash.open({onclose: closeSplash});
- if(!param){
-  $('#simpleform').show();
-  $('#hardform').hide();
- }else{
-  initHardForm(district, register[param], userdoc[param], param);
- }
- $('#splashmain').show();
-}
-function form(e){
- var inputs = this.find(['input,select,textarea']), data = {};
- inputs.each(function(){data[this.name()] = this.val()});
- if(inputs.length() > 2){
-  data['district'] = $('#hardform aside ul li.selected').html();
-  data['from'] = $('#hardform h3 span').html();
- }
- $.ajax(data, 'server.php', function(r){ alert(r.responce) });
- return false;
-}
-
 })(window, document);
