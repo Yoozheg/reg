@@ -3,7 +3,7 @@
  
  $.splash = (function(){
   var splashScreen = (new $('div')).id('splash').cls('splash').css('display:none'), splashScreenAside = splashScreen.add('aside').cls('splash').html('закрыть'),
-    splashed = false, defaultParams = {prevClose:true, aside:true, zIndex:10}, splashCloseFunc;
+    splashed = false, defaultParams = {prevClose:true, aside:false, zIndex:10}, splashCloseFunc;
 
   var splash = (function(){
    return {
@@ -28,12 +28,18 @@
    }
   })()
 
-  splashScreenAside.on({click: splash.close});
+  //splashScreenAside.on({click: splash.close});
+  $.ready(function(){
+   $(splashScreen, '#splashmain').on({click: function(event){
+    if($('#splashmain').contains(event.target) && event.target.tagName.toLowerCase() != 'button') return false;
+    if(event.target.tagName.toLowerCase() != 'button') splash.close()
+   }});
+  })
 
   $.css('.splash', 'position:fixed;top:0;right:0;bottom:0');
   $.css('#splash', 'left:0;display:none;background:rgba(30,30,30,0.75)');
-  $.css('#splash > aside.splash' , 'width:13%;background:top right url(img/close.png) no-repeat;border:none;color:transparent;text-align:right;padding-right:45px;padding-top:10px;font-size:16px;cursor:pointer;transition:0.7s all');
-  $.css('#splash > aside.splash:hover', 'background-color:rgba(50,50,50,0.75);color:white');
+  //$.css('#splash > aside.splash' , 'width:13%;background:top right url(img/close.png) no-repeat;border:none;color:transparent;text-align:right;padding-right:45px;padding-top:10px;font-size:16px;cursor:pointer;transition:0.7s all');
+  //$.css('#splash > aside.splash:hover', 'background-color:rgba(50,50,50,0.75);color:white');
 
   $.ready(function(){
    $(document.body).add(splashScreen);

@@ -24,7 +24,7 @@
    userdoc  = {'РФ':['Паспорт','Свидетельство о рождении'],'СНГ':['Паспорт']};
 
  $.ready(function(){
-  $(['#what div ul li']).on({click: function(e){$('#what main').css({backgroundImage:'url(img/'+this.onceClass('selected').data('num')+')'})}});
+  $(['#what div ul li']).on({mouseover: function(e){$('#what main').css({backgroundImage:'url(img/'+this.onceClass('selected').data('num')+')'})}});
   $(['.button']).on({click:function(e){ openSplash(this.data('from')) }});
   $(['form']).on({submit: form});
  });
@@ -58,6 +58,8 @@ function initHardForm(districts, register, userdoc, param){
  selectDistrict($('#hardform aside ul li'), districts, register, userdoc);
  $(['#hardform aside ul li']).on({click: function(e){selectDistrict(this, districts, register, userdoc)}});
  hard.show();
+ $('#SNGREG input').val(param == 'СНГ' ? '' : 'РФ');
+ param == 'РФ' ? $('#SNGREG').hide() : $('#SNGREG').show();
  $('#hardform').show();
 }
 function closeSplash(){ $('#splashmain').hide() }

@@ -145,13 +145,14 @@
    </aside>
    <article>
     <h4>Оформление временной регистрации в <span></span></h4>
-	<p><label>Выберите район</label><select name="departments"></select></p>
-	<p><label>Срок регистрации</label><select name="duration"></select></p>
+	<p id="SNGREG"><label>Гражданство</label><input type="text" name="sngreg" required /></p>
+	<p><label>Выберите район</label><select name="departments" required></select></p>
+	<p><label>Срок регистрации</label><select name="duration" required></select></p>
 	<p><label>ФИО</label><input type="text" name="name" required /></p>
 	<p><label>Дата рождения</label><input type="date" name="birthdate" required /></p>
 	<p><label>Место рождения</label><input type="text" name="birthplace" required /></p>
-	<p><label>Выберите вид документа<span>удостоверяющего личность</span></label><select name="userdoc"></select></p>
-	<p><label>Введите паспортные данные<span>Серия и номер, когда и кем выдан</span></label><textarea name="passport"></textarea></p>
+	<p><label>Выберите вид документа<span>удостоверяющего личность</span></label><select name="userdoc" required></select></p>
+	<p><label>Введите паспортные данные<span>Серия и номер, когда и кем выдан</span></label><textarea required name="passport"></textarea></p>
 	<p><label>Ваши вопросы или пожелания</label><textarea name="request"></textarea></p>
 	<p><label>Ваш номер телефона</label><input type="tel" name="phone" required /></p>
 	<p><label>Ближайшее метро</label><input type="text" name="metro" required /></p>
@@ -160,5 +161,4 @@
    <button class="clear">Оформить временную регистрацию</button>
   </form>
 </main>
-
 </body></html>

@@ -37,6 +37,7 @@
  if($_POST['passport']) $data['Паспортные данные'] = getStr('passport');
  if($_POST['metro']) $data['Ближайшая станция метро'] = getStr('metro');
  if($_POST['request']) $data['Вопросы или пожелания'] = getStr('request');
+ if($_POST['sngreg']) $data['Гражданство'] = getStr('sngreg');
   
  $send = message($address, "Заявка с сайта " . $site, $data);
  out($send ? "Менеджер агентства свяжется с вами в самое ближайшее время" : "Ошибка, сообщение не отправлено!");
