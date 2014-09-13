@@ -69,18 +69,21 @@ header button:active{margin-top:9px;box-shadow:none;}
 #price ol{list-style:none;font:italic 15px "Trebuchet MS";padding-top:13px}
 #price ol strong{font-weight:bold}
 #price div{width:479px;height:870px;position:relative;}
-#price button{font:20px "Trebuchet MS";color:white;}
-#price button p{padding-left:55px}
-#price button span{font:bold 22px "Trebuchet MS";text-transform:uppercase}
+#price div > button{font:20px "Trebuchet MS";color:white;}
+#price div > button p{padding-left:55px}
+#price div > button span{font:bold 22px "Trebuchet MS";text-transform:uppercase}
 #price div.left h4{padding-left:165px}
-#price div.left ol{padding-left:160px}
-#price  ol li{padding-top:27px;padding-bottom:28px}
+#price div.left ol{padding-left:44px}
+#price  ol li{padding-top:12px;padding-bottom:19px}
 #price div.left ol li:nth-child(2){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
 #price div.right h4{padding-left:189px}
-#price div.right ol{padding-left:184px}
+#price div.right ol{padding-left:69px}
 #price div.right ol li:nth-child(even){padding-left:125px;margin-top:-8px;margin-bottom:-6px}
-#price div.left button  {position:absolute;bottom:0;left:56px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none}
-#price div.right button{position:absolute;bottom:0;left:56px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none}
+#price div.left   > button  {position:absolute;bottom:0;left:56px;background:url(img/b1.png)no-repeat top center;width:366px;height:72px;border:none}
+#price div.right > button{position:absolute;bottom:0;left:56px;background:url(img/b2.png)no-repeat top center;width:366px;height:72px;border:none}
+#price li button{background:url(img/blue.jpg) center center no-repeat;width:115px;line-height:42px;border:none;font-family:"Trebuchet MS";font-size:22px;font-weight:900;color:white;font-style:normal;text-shadow:white 0 1px 1px}
+#price li button:after{content:' Руб.';text-transform:uppercase;font-size:10px;text-shadow:none}
+#price .right li button{background-image:url(img/red.jpg)}
 
 #what{background:white;}
 #what main{background:url('img/okno1.jpg') bottom left no-repeat;height:550px;}
